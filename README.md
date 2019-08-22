@@ -1,15 +1,8 @@
-# geoparsingweb
-
-CEGEOMEX y Geoparsing en español info
-
-
 <!DOCTYPE html>
 <html>
-
-
-
 <body>
-<body>
+
+<h1>Geoparse MX</h1>
 
 <h2>Geoparsing de noticias en español con datos del Corpus de Entidades Georreferenciadas de México</h2>
 
@@ -299,7 +292,6 @@ Plaza Fundadores.</figcaption>
   <ul>
     <li>Laboratorio de Datos (DataLab) del Laboratorio Nacional de Geointeligencia (GeoInt)</li>
   </ul>
-
 
 <h3>Referencias</h3>
 
