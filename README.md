@@ -37,7 +37,7 @@ mediante petición HTTP POST Request enviando, en el cuerpo de la petición, un 
 
 <code>
 {
-    "labeled": "Un grupo de presidentes municipales del país inicia hoy en <START:location> Mérida <END> la creación de una red de ciudades con buenas prácticas policiales con el fin de mantener o mejorar la seguridad pública en sus comunidades .\nPor iniciativa del alcalde Renán Barrera Concha y el liderazgo de la asociación civil Causa en Común , que dirige la activista ciudadana María Elena Morera Mitre , los alcaldes mexicanos invitados realizarán la mesa de diálogo “ Trabajo Sociedad más Gobierno , la Construcción de Ciudades Seguras ”. Será una reunión privada en un salón del <START:location> Centro Cultural Olimpo <END>.\n",
+    "labeled": "Un grupo de presidentes municipales del país inicia hoy en &lt;LOC&gt;START:location&lt;/LOC&gt; Mérida &lt;LOC&gt;END&lt;/LOC&gt; la creación de una red de ciudades con buenas prácticas policiales con el fin de mantener o mejorar la seguridad pública en sus comunidades .\nPor iniciativa del alcalde Renán Barrera Concha y el liderazgo de la asociación civil Causa en Común , que dirige la activista ciudadana María Elena Morera Mitre , los alcaldes mexicanos invitados realizarán la mesa de diálogo “ Trabajo Sociedad más Gobierno , la Construcción de Ciudades Seguras ”. Será una reunión privada en un salón del &lt;LOC&gt;START:location&lt;/LOC&gt; Centro Cultural Olimpo &lt;LOC&gt;END&lt;/LOC&gt;.\n",
     "entities": [
         {
             "index": 1,
@@ -165,7 +165,7 @@ $$
 
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}" title="\Large x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}" />
-
+    
 
 Mientras que el vector de contexto local se calcula como se muestra en la ecuación \ref{eq414}.
 
