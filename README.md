@@ -158,10 +158,14 @@ entrenamiento, de acuerdo a la ecuación \ref{eq413}.
 
 $$
 \begin{equation}
-    x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}        
+    x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}
   \label{eq413}
 \end{equation}
 $$
+
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}" title="\Large x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}" />
+
 
 Mientras que el vector de contexto local se calcula como se muestra en la ecuación \ref{eq414}.
 
