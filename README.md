@@ -150,9 +150,9 @@ La red neuronal de clasificación evalúa los <i>embeddings</i> (vectores densos
 La red neuronal de clasificación tiene 1 capa oculta con 3 unidades y la función de activación es de tipo sigmoide. Como optimizador se utilizó <i>lbfgs</i>, el cual pertence a la familia de los métodos quasi-Newton. El parámetro de regularización L2 fue de 0.0001, mientras que la tasa de aprendizaje fue constante, con un valor de 0.0001. Todos los parámetros fueron calibrados mediante validación cruzada.
 </p>
 <p>
-Los embeddings se obtuvieron a partir de tokens procesados utilizando el módulo word2vec <a href="#word_rep">(Mikolov et al., 2013)</a>. Además de los word embeddings se ha utilizado un Context Encoder (ConEc).  El entrenamiento del ConEc es idéntico al del word2vec, con la diferencia en el cálculo del word embedding después de que el entrenamiento se completó. En el caso de word2vec, el embedding es la fila de la matriz $W_0$ mientras que en el caso de ConEc se crea la representación de la palabra multiplicando $W_0$ con el vector de contexto promedio $x_W$ de la palabra.
+Los embeddings se obtuvieron a partir de tokens procesados utilizando el módulo word2vec <a href="#word_rep">(Mikolov et al., 2013)</a>. Además de los word embeddings se ha utilizado un Context Encoder (ConEc).  El entrenamiento del ConEc es idéntico al del word2vec, con la diferencia en el cálculo del word embedding después de que el entrenamiento se completó. En el caso de word2vec, el embedding es la fila de la matriz W<sub>0</sub> mientras que en el caso de ConEc se crea la representación de la palabra multiplicando W<sub>0</sub> con el vector de contexto promedio x<sub>W</sub> de la palabra.
 
-Se hace la distinción entre el vector de contexto local y global de una palabra. El vector global se calcula como el promedio de todos los vectores binarios de contexto $x_{w_i}$ correspondientes a las $M_w$ ocurrencias de $w$ en el corpus de
+Se hace la distinción entre el vector de contexto local y global de una palabra. El vector global se calcula como el promedio de todos los vectores binarios de contexto x<sub>w<sub>i</sub></sub> correspondientes a las M<sub>w</sub> ocurrencias de w en el corpus de
 entrenamiento, de acuerdo a la ecuación \ref{eq413}.
 </p>
 
@@ -176,7 +176,7 @@ $$
 \end{equation}
 $$
 
-donde $m_w$ corresponde a las ocurrencias de $w$ en un solo
+donde M<sub>w</sub> corresponde a las ocurrencias de $w$ en un solo
 documento. Así, el embedding de una palabra se calcula como se muestra en la ecuación \ref{eq415}.
 
 $$
