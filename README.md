@@ -26,23 +26,38 @@ mediante petición HTTP POST Request enviando, en el cuerpo de la petición, un 
 
 <p>Por ejemplo:</p>
 
-<code>
+```
 {
-    "text": "Un grupo de presidentes municipales del país inicia hoy en Mérida la creación de una red de ciudades con buenas prácticas policiales con el fin de mantener o mejorar la seguridad pública en sus comunidades.\nPor iniciativa del alcalde Renán Barrera Concha y el liderazgo de la asociación civil Causa en Común, que dirige la activista ciudadana María Elena Morera Mitre, los alcaldes mexicanos invitados realizarán la mesa de diálogo “Trabajo Sociedad más Gobierno, la Construcción de Ciudades Seguras”. Será una reunión privada en un salón del Centro Cultural Olimpo.\nLa doctora Morera Mitre informó que en una reunión el alcalde Barrera Concha le propuso organizar un encuentro sobre seguridad en la capital yucateca, y aunque en un principio no lo consideró porque Mérida está considerada como una de las mejores ciudades para vivir precisamente por sus bajos índices delictivos, el alcalde meridano argumentó que aunque sea una ciudad segura siempre habrá desafíos en materia de seguridad pública.— Joaquín Chan Caamal\n“Mérida, a diferencia de otras ciudades de México y de otras donde hay mucho turismo, se caracteriza porque su sociedad es sumamente unida”, señaló. “Contrario a muchas ciudades de México, cuando venimos nos sorprende que las casas tienen las bardas bajitas, cuando en otros lados encontramos las más altas como medida de protección”."
+    "text": "Un grupo de presidentes municipales del país inicia hoy en Mérida
+    la creación de una red de ciudades con buenas prácticas policiales con el
+    fin de mantener o mejorar la seguridad pública en sus comunidades.
+    Por iniciativa del alcalde Renán Barrera Concha y el liderazgo de la
+    asociación civil Causa en Común, que dirige la activista ciudadana
+    María Elena Morera Mitre, los alcaldes mexicanos invitados realizarán
+    la mesa de diálogo “Trabajo Sociedad más Gobierno, 
+    la Construcción de Ciudades Seguras”.
+    Será una reunión privada en un salón del Centro Cultural Olimpo.
 }
-</code>
+```
+
 
 <p>generará como salida:</p>
 
 
-<code>
+```
 {
-    "labeled": "Un grupo de presidentes municipales del país inicia hoy en &lt;LOC&gt;Mérida&lt;/LOC&gt; la creación de una red de ciudades con buenas prácticas policiales con el fin de mantener o mejorar la seguridad pública en sus comunidades .\nPor iniciativa del alcalde Renán Barrera Concha y el liderazgo de la asociación civil Causa en Común , que dirige la activista ciudadana María Elena Morera Mitre , los alcaldes mexicanos invitados realizarán la mesa de diálogo “ Trabajo Sociedad más Gobierno , la Construcción de Ciudades Seguras ”. Será una reunión privada en un salón del &lt;LOC&gt;Centro Cultural Olimpo&lt;/LOC&gt;.\n",
+    "labeled": "Un grupo de presidentes municipales del país inicia hoy en <LOC>Mérida</LOC> la creación
+    de una red de ciudades con buenas prácticas policiales con el fin de mantener o mejorar la seguridad pública 
+    en sus comunidades .
+    Por iniciativa del alcalde Renán Barrera Concha y el liderazgo de la asociación 
+    civil Causa en Común , que dirige la activista ciudadana María Elena Morera Mitre , los alcaldes mexicanos
+    invitados realizarán la mesa de diálogo “ Trabajo Sociedad más Gobierno , la Construcción de Ciudades Seguras ”.
+    Será una reunión privada en un salón del <LOC>Centro Cultural Olimpo</LOC>.\n",
     "entities": [
         {
             "index": 1,
             "entity": "Mérida",
-            "context": "Un grupo de presidentes municipales del país inicia hoy en  Mérida  la creación de una red de ciudades con buenas prácticas",
+            "context": "Un grupo de presidentes municipales del país inicia hoy en Mérida la creación de una red de ciudades con buenas prácticas",
             "nonimatim": [
                 {
                     "boundingbox": [
@@ -58,7 +73,8 @@ mediante petición HTTP POST Request enviando, en el cuerpo de la petición, un 
                     "lat": "20.9670759",
                     "licence": "Data 
     ...
-</code>
+}
+```
 
 <h2>Acerca del proyecto</h2>
 
