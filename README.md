@@ -2,7 +2,6 @@
 <html>
 <body>
 
-<h1>Geoparse MX</h1>
 
 <h2>Geoparsing de noticias en español con datos del Corpus de Entidades Georreferenciadas de México</h2>
 
