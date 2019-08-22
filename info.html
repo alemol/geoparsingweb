@@ -27,9 +27,64 @@
 
 <body>
 
-<h2>Métodos avanzados de Geoparsing en discurso libre</h2>
+<h2>Geoparsing de noticias en español con datos del Corpus de Entidades Georreferenciadas de México</h2>
 
-<h3>Introducción</h3>
+<h3>Corpus de Entidades Georreferenciadas de México</h3>
+
+
+<p>El <a href="named_entity_recognition_sp_MX_locations.JSON
+" target="_blank">Corpus de Entidades Georreferenciadas de México, CEGEOMEX</a> es de libre acceso bajo los términos de atribución abajo mencionados.
+</p>
+
+
+<h3>Geoparsing en servicio web</h3>
+
+<p>
+Para usar el Geoparser como un servicio web utilice la URL:
+</p>
+
+<code>http://geoparsing.geoint.mx/ws/</code>
+<p>
+mediante petición HTTP POST Request enviando, en el cuerpo de la petición, un parámetro "text" con el texto a procesar.
+</p>
+
+<p>Por ejemplo:</p>
+
+<code>
+{
+	"text": "Un grupo de presidentes municipales del país inicia hoy en Mérida la creación de una red de ciudades con buenas prácticas policiales con el fin de mantener o mejorar la seguridad pública en sus comunidades.\nPor iniciativa del alcalde Renán Barrera Concha y el liderazgo de la asociación civil Causa en Común, que dirige la activista ciudadana María Elena Morera Mitre, los alcaldes mexicanos invitados realizarán la mesa de diálogo “Trabajo Sociedad más Gobierno, la Construcción de Ciudades Seguras”. Será una reunión privada en un salón del Centro Cultural Olimpo.\nLa doctora Morera Mitre informó que en una reunión el alcalde Barrera Concha le propuso organizar un encuentro sobre seguridad en la capital yucateca, y aunque en un principio no lo consideró porque Mérida está considerada como una de las mejores ciudades para vivir precisamente por sus bajos índices delictivos, el alcalde meridano argumentó que aunque sea una ciudad segura siempre habrá desafíos en materia de seguridad pública.— Joaquín Chan Caamal\n“Mérida, a diferencia de otras ciudades de México y de otras donde hay mucho turismo, se caracteriza porque su sociedad es sumamente unida”, señaló. “Contrario a muchas ciudades de México, cuando venimos nos sorprende que las casas tienen las bardas bajitas, cuando en otros lados encontramos las más altas como medida de protección”."
+}
+</code>
+
+<p>generará como salida:</p>
+
+
+<code>
+{
+    "labeled": "Un grupo de presidentes municipales del país inicia hoy en <START:location> Mérida <END> la creación de una red de ciudades con buenas prácticas policiales con el fin de mantener o mejorar la seguridad pública en sus comunidades .\nPor iniciativa del alcalde Renán Barrera Concha y el liderazgo de la asociación civil Causa en Común , que dirige la activista ciudadana María Elena Morera Mitre , los alcaldes mexicanos invitados realizarán la mesa de diálogo “ Trabajo Sociedad más Gobierno , la Construcción de Ciudades Seguras ”. Será una reunión privada en un salón del <START:location> Centro Cultural Olimpo <END>.\n",
+    "entities": [
+        {
+            "index": 1,
+            "entity": "Mérida",
+            "context": "Un grupo de presidentes municipales del país inicia hoy en  Mérida  la creación de una red de ciudades con buenas prácticas",
+            "nonimatim": [
+                {
+                    "boundingbox": [
+                        "20.8733088",
+                        "21.0867259",
+                        "-89.7261963",
+                        "-89.5301684"
+                    ],
+                    "class": "place",
+                    "display_name": "Mérida, Yucatán, México",
+                    "icon": "/nominatim/images/mapicons/poi_place_city.p.20.png",
+                    "importance": 0.57816344305869,
+                    "lat": "20.9670759",
+                    "licence": "Data 
+    ...
+</code>
+
+<h2>Acerca del proyecto</h2>
 
 <p>
 En este proyecto se vislumbra la creación de métodos capaces de transformar voz o texto en identificadores geográficos inequívocos tales como latitud y longitud. Por ejemplo, un fragmento de noticia como: <i>"[...] el choque ocurrió esta mañana a cinco kilómetros al norte de la primera caseta de la carretera México-Puebla [...]"</i>, contiene la información necesaria para que un humano represente en un mapa el lugar exacto donde ocurrió el accidente. Sin embargo, una computadora no podría procesar la entrada directamente a menos que haya sido programada para decodificar el discurso y extraer el conocimiento que se le proporcione para luego convertirlo en datos estructurados. Nuestra propuesta metodológica incluye compilación de corpus, caracterización lingüística y desarrollo de algoritmos de aprendizaje de máquina (<i>Machine Learning</i>) para la construcción del primer geoparser para español de México.
@@ -105,13 +160,9 @@ principales medios digitales de México. Los criterios de la anotación de CEGEO
 
 <p>
 <a href="named_entity_recognition_sp_MX_locations.JSON
-" target="_blank">El Corpus de Entidades Georreferenciadas de México</a>, CEGEOMEX es de libre acceso bajo atribución de <a href="Licencia.txt" target="_blank">la licencia (CC BY 2.5 MX)</a>. Usted es libre de compartir, copiar y redistribuir el material en cualquier medio o formato; adaptar, remezclar, transformar y construir a partir del material para cualquier propósito, incluso comercialmente. Bajo los términos de atribución, con lo cual debe dar crédito de manera adecuada, brindar un enlace a la licencia, e indicar si se han realizado cambios. 
+" target="_blank">El Corpus de Entidades Georreferenciadas de México</a>, CEGEOMEX es de libre acceso bajo atribución de <a href="Licencia.txt" target="_blank">la licencia (CC BY 2.5 MX)</a>. Usted es libre de compartir, copiar y redistribuir el material en cualquier medio o formato; adaptar, remezclar, transformar y construir a partir del material para cualquier propósito, incluso comercialmente. Bajo los términos de atribución, con lo cual debe dar crédito de manera adecuada citando <a href="#molina2019extraccion">(Molina et al., 2019)</a> y brindando un enlace al recurso e indicar si se han realizado cambios. 
 </p>
 
-<p><a href="named_entity_recognition_sp_MX_locations.JSON
-" target="_blank">Descargar el Corpus de Entidades Georreferenciadas de México</a>
-</p>
-	
 
 <h3>Reconocimiento de Entidades Georreferenciadas basado en Word Embeddings</h3>
 
@@ -130,14 +181,14 @@ entrenamiento, de acuerdo a la ecuación \ref{eq413}.
 </p>
 
 \begin{equation}
-	x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}        
+    x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}        
   \label{eq413}
 \end{equation}
 
 Mientras que el vector de contexto local se calcula como se muestra en la ecuación \ref{eq414}.
 
 \begin{equation}
-	x_{w_{local}} = \frac{1}{m_w} \sum_{i=1}^{m_w}x_{w_i}
+    x_{w_{local}} = \frac{1}{m_w} \sum_{i=1}^{m_w}x_{w_i}
 \label{eq414}
 \end{equation}
 
@@ -146,9 +197,9 @@ donde \(m_w\) corresponde a las ocurrencias de \(w\) en un solo
 documento. Así, el embedding de una palabra se calcula como se muestra en la ecuación \ref{eq415}.
 
 \begin{equation}
-	y_w = (\alpha \cdot x_{w_global} + (1 - \alpha) \cdot
+    y_w = (\alpha \cdot x_{w_global} + (1 - \alpha) \cdot
 x_{w_local})^T W_0
-	\label{eq415}
+    \label{eq415}
 \end{equation}
 
 con \(\alpha \in [0,1]\). 
@@ -174,33 +225,33 @@ El desempeño del modelo de reconocimiento de Entidades del CentroGEO fue evalua
 
 <div>
 <table align="center">
-	<tbody>
-		<tr>
-			<th> </th>
-			<th>CentroGEO</th>
-			<th>spaCy</th>
-			<th>Apache OpenNLP</th>
-		</tr>
-		<tr>
-			<td>F1 score</td>
-			<td>0.5995</td>
-			<td>0.4529</td>
-			<td>0.3108</td>
-		</tr>
-		<tr>
-			<td>Recall</td>
-			<td>0.6759</td>
-			<td>0.4454</td>
-			<td>0.1863</td>
-		</tr>
-		<tr>
-			<td>Precision</td>
-			<td>0.5387</td>
-			<td>0.4608</td>
-			<td>0.9358</td>
-		</tr>
-	</tbody>
-		  <caption>Tabla 1. Comparativa del desempeño de nuestro modelo de reconocimiento de Entidades Geográficas en español de México contra dos de las bibliotecas más importantes en el estado del arte de Procesamiento de Lenguaje Natural: spaCy y  OpenNLP.</caption>
+    <tbody>
+        <tr>
+            <th> </th>
+            <th>CentroGEO</th>
+            <th>spaCy</th>
+            <th>Apache OpenNLP</th>
+        </tr>
+        <tr>
+            <td>F1 score</td>
+            <td>0.5995</td>
+            <td>0.4529</td>
+            <td>0.3108</td>
+        </tr>
+        <tr>
+            <td>Recall</td>
+            <td>0.6759</td>
+            <td>0.4454</td>
+            <td>0.1863</td>
+        </tr>
+        <tr>
+            <td>Precision</td>
+            <td>0.5387</td>
+            <td>0.4608</td>
+            <td>0.9358</td>
+        </tr>
+    </tbody>
+          <caption>Tabla 1. Comparativa del desempeño de nuestro modelo de reconocimiento de Entidades Geográficas en español de México contra dos de las bibliotecas más importantes en el estado del arte de Procesamiento de Lenguaje Natural: spaCy y  OpenNLP.</caption>
 </table>
 </div>
 
@@ -238,44 +289,37 @@ Plaza Fundadores.</figcaption>
 
 <h3>Grupo de trabajo e instituciones participantes</h3>
 
-
-<ul>
-
 <h5>Centro de Investigación en Ciencias de Información Geoespacial - Mérida</h5>
-	<li> Dr. Alejandro Molina Villegas. Responsable Técnico: Procesamiento de Lenguaje Natural, Minería de datos; </li>
-	<li> Dr. Oscar Sanchez Siordia. Coordinador del centro e Investigador titular: Reconocimiento de Patrones, Geomática;</li>
-	<li> Ing. en computación Sergio Gongora Euan. Programador de sistemas.</li>
+
+  <ul>
+    <li> Dr. Alejandro Molina Villegas. Responsable Técnico: Procesamiento de Lenguaje Natural, Minería de datos; </li>
+    <li> Dr. Oscar Sanchez Siordia. Coordinador del centro e Investigador titular: Reconocimiento de Patrones, Geomática;</li>
+    <li> Ing. en computación Sergio Gongora Euan. Programador de sistemas.</li>
+  </ul>
 
 <h5>Centro de Investigación y Estudios Avanzados del Instituto Politécnico Nacional - Tamaulipas</h5>
-
-	<li> Dr. Edwyn Javier Aldana Bobadilla. Investigador. Aprendizaje de Máquina, Algoritmos Híbridos;</li>
-	<li>Shanel Daniela Reyes Palacios. Tesista de posgrado.</li>
+  <ul>
+    <li> Dr. Edwyn Javier Aldana Bobadilla. Investigador. Aprendizaje de Máquina, Algoritmos Híbridos;</li>
+    <li>Shanel Daniela Reyes Palacios. Tesista de posgrado.</li>
+  </ul>
 
 <h5>Centro de Investigación en Matemáticas - Monterrey</h5>
-
-	<li>Dr. Víctor Hugo Muñiz Sánchez. Investigador. Aprendizaje estadístico supervisado y no supervisado, análisis exploratorio de datos y técnicas de reducción de dimensión;</li>
-	<li>Jean Michel Arreola Trapala. Tesista de posgrado;</li>
-	<li>Filomeno Alberto Alcántara Alonso. Tesista de posgrado.</li>
-
-</ul>
+  <ul>
+    <li>Dr. Víctor Hugo Muñiz Sánchez. Investigador. Aprendizaje estadístico supervisado y no supervisado, análisis exploratorio de datos y técnicas de reducción de dimensión;</li>
+    <li>Jean Michel Arreola Trapala. Tesista de posgrado;</li>
+    <li>Filomeno Alberto Alcántara Alonso. Tesista de posgrado.</li>
+  </ul>
 
 <h3>Referencias</h3>
 
-<ol>
-
-	<li>[Molina-Villegas et al., 2019] <span id="molina2019extraccion">Molina-Villegas, A., Siordia, O., Aldana-Bobadilla, E., Aguilar, C. and Acosta, O. <cite><i>Extracción automática de referencias geoespaciales en discurso libre usando técnicas de procesamiento de lenguaje natural y teoría de la accesibilidad</i><cite>. Procesamiento del Lenguaje Natural. (SEPLN), 2019.</span></li>
-
-	<li>[Sang y De Meulder, 2003] <span id="sang2003introduction"> Sang, E. F. y De Meulder, F. <cite><i>Introduction to the conll-2003 shared task: Language-independent named entity recognition. arXiv preprint cs/0306050</i><cite>. 2003.</span></li>
-
-	<li>[Arreola, 2019] <span id="arreola2019"> Arreola Trapala, J. <cite><i>Reconocimiento de Entidades Nombradas Georeferenciables con Word Embeddings</i><cite>. Tesis de posgrado Centro de Investigación en Matemáticas Unidad Monterrey, Agosto 2019.</span></li>
-
-	<li>[Mikolov et al., 2013] <span id="word_rep">Mikolov, T., Chen, K., Corrado, G. y Dean, J. <cite><i>Efficient estimation of word representations in vector space</i><cite>. CoRR, vol. abs/1301.3781, 2013.</span></li>
-
-	<li>[Alcántara, 2019] <span id="alcantara2019"> Alcántara Alonso, F. <cite><i>Métodos de desambigüación para Geoparsing en Textos en Español</i><cite>. Tesis de posgrado Centro de Investigación en Matemáticas Unidad Monterrey, Agosto 2019.</span></li>
-
-	<li>[López et al., 2019] <span id="lopez2019"> López-Ramírez, P., Molina-Villegas, A. y S. Siordia O. <cite><i>Geographical aggregation of microblog posts for LDA topic modeling.</i><cite>Journal of Intelligent and Fuzzy Systems 36(5): 4901-4908 (2019).</span></li>
-	
-</ol>
+  <ol>
+    <li>[Molina-Villegas et al., 2019] <span id="molina2019extraccion">Molina-Villegas, A., Siordia, O., Aldana-Bobadilla, E., Aguilar, C. and Acosta, O. <cite><i>Extracción automática de referencias geoespaciales en discurso libre usando técnicas de procesamiento de lenguaje natural y teoría de la accesibilidad</i><cite>. Procesamiento del Lenguaje Natural. (SEPLN), 2019.</span></li>
+    <li>[Sang y De Meulder, 2003] <span id="sang2003introduction"> Sang, E. F. y De Meulder, F. <cite><i>Introduction to the conll-2003 shared task: Language-independent named entity recognition. arXiv preprint cs/0306050</i><cite>. 2003.</span></li>
+    <li>[Arreola, 2019] <span id="arreola2019"> Arreola Trapala, J. <cite><i>Reconocimiento de Entidades Nombradas Georeferenciables con Word Embeddings</i><cite>. Tesis de posgrado Centro de Investigación en Matemáticas Unidad Monterrey, Agosto 2019.</span></li>
+    <li>[Mikolov et al., 2013] <span id="word_rep">Mikolov, T., Chen, K., Corrado, G. y Dean, J. <cite><i>Efficient estimation of word representations in vector space</i><cite>. CoRR, vol. abs/1301.3781, 2013.</span></li>
+    <li>[Alcántara, 2019] <span id="alcantara2019"> Alcántara Alonso, F. <cite><i>Métodos de desambigüación para Geoparsing en Textos en Español</i><cite>. Tesis de posgrado Centro de Investigación en Matemáticas Unidad Monterrey, Agosto 2019.</span></li>
+    <li>[López et al., 2019] <span id="lopez2019"> López-Ramírez, P., Molina-Villegas, A. y S. Siordia O. <cite><i>Geographical aggregation of microblog posts for LDA topic modeling.</i><cite>Journal of Intelligent and Fuzzy Systems 36(5): 4901-4908 (2019).</span></li>
+  </ol>
 
 </body>
 </html>

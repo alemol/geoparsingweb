@@ -9,12 +9,66 @@ CEGEOMEX y Geoparsing en español info
 
 
 <body>
+<body>
 
 <h2>Geoparsing de noticias en español con datos del Corpus de Entidades Georreferenciadas de México</h2>
 
+<h3>Corpus de Entidades Georreferenciadas de México</h3>
 
 
-<h3>Introducción</h3>
+<p>El <a href="named_entity_recognition_sp_MX_locations.JSON
+" target="_blank">Corpus de Entidades Georreferenciadas de México, CEGEOMEX</a> es de libre acceso bajo los términos de atribución abajo mencionados.
+</p>
+
+
+<h3>Geoparsing en servicio web</h3>
+
+<p>
+Para usar el Geoparser como un servicio web utilice la URL:
+</p>
+
+<code>http://geoparsing.geoint.mx/ws/</code>
+<p>
+mediante petición HTTP POST Request enviando, en el cuerpo de la petición, un parámetro "text" con el texto a procesar.
+</p>
+
+<p>Por ejemplo:</p>
+
+<code>
+{
+    "text": "Un grupo de presidentes municipales del país inicia hoy en Mérida la creación de una red de ciudades con buenas prácticas policiales con el fin de mantener o mejorar la seguridad pública en sus comunidades.\nPor iniciativa del alcalde Renán Barrera Concha y el liderazgo de la asociación civil Causa en Común, que dirige la activista ciudadana María Elena Morera Mitre, los alcaldes mexicanos invitados realizarán la mesa de diálogo “Trabajo Sociedad más Gobierno, la Construcción de Ciudades Seguras”. Será una reunión privada en un salón del Centro Cultural Olimpo.\nLa doctora Morera Mitre informó que en una reunión el alcalde Barrera Concha le propuso organizar un encuentro sobre seguridad en la capital yucateca, y aunque en un principio no lo consideró porque Mérida está considerada como una de las mejores ciudades para vivir precisamente por sus bajos índices delictivos, el alcalde meridano argumentó que aunque sea una ciudad segura siempre habrá desafíos en materia de seguridad pública.— Joaquín Chan Caamal\n“Mérida, a diferencia de otras ciudades de México y de otras donde hay mucho turismo, se caracteriza porque su sociedad es sumamente unida”, señaló. “Contrario a muchas ciudades de México, cuando venimos nos sorprende que las casas tienen las bardas bajitas, cuando en otros lados encontramos las más altas como medida de protección”."
+}
+</code>
+
+<p>generará como salida:</p>
+
+
+<code>
+{
+    "labeled": "Un grupo de presidentes municipales del país inicia hoy en <START:location> Mérida <END> la creación de una red de ciudades con buenas prácticas policiales con el fin de mantener o mejorar la seguridad pública en sus comunidades .\nPor iniciativa del alcalde Renán Barrera Concha y el liderazgo de la asociación civil Causa en Común , que dirige la activista ciudadana María Elena Morera Mitre , los alcaldes mexicanos invitados realizarán la mesa de diálogo “ Trabajo Sociedad más Gobierno , la Construcción de Ciudades Seguras ”. Será una reunión privada en un salón del <START:location> Centro Cultural Olimpo <END>.\n",
+    "entities": [
+        {
+            "index": 1,
+            "entity": "Mérida",
+            "context": "Un grupo de presidentes municipales del país inicia hoy en  Mérida  la creación de una red de ciudades con buenas prácticas",
+            "nonimatim": [
+                {
+                    "boundingbox": [
+                        "20.8733088",
+                        "21.0867259",
+                        "-89.7261963",
+                        "-89.5301684"
+                    ],
+                    "class": "place",
+                    "display_name": "Mérida, Yucatán, México",
+                    "icon": "/nominatim/images/mapicons/poi_place_city.p.20.png",
+                    "importance": 0.57816344305869,
+                    "lat": "20.9670759",
+                    "licence": "Data 
+    ...
+</code>
+
+<h2>Acerca del proyecto</h2>
 
 <p>
 En este proyecto se vislumbra la creación de métodos capaces de transformar voz o texto en identificadores geográficos inequívocos tales como latitud y longitud. Por ejemplo, un fragmento de noticia como: <i>"[...] el choque ocurrió esta mañana a cinco kilómetros al norte de la primera caseta de la carretera México-Puebla [...]"</i>, contiene la información necesaria para que un humano represente en un mapa el lugar exacto donde ocurrió el accidente. Sin embargo, una computadora no podría procesar la entrada directamente a menos que haya sido programada para decodificar el discurso y extraer el conocimiento que se le proporcione para luego convertirlo en datos estructurados. Nuestra propuesta metodológica incluye compilación de corpus, caracterización lingüística y desarrollo de algoritmos de aprendizaje de máquina (<i>Machine Learning</i>) para la construcción del primer geoparser para español de México.
@@ -90,13 +144,9 @@ principales medios digitales de México. Los criterios de la anotación de CEGEO
 
 <p>
 <a href="named_entity_recognition_sp_MX_locations.JSON
-" target="_blank">El Corpus de Entidades Georreferenciadas de México</a>, CEGEOMEX es de libre acceso bajo atribución de <a href="Licencia.txt" target="_blank">la licencia (CC BY 2.5 MX)</a>. Usted es libre de compartir, copiar y redistribuir el material en cualquier medio o formato; adaptar, remezclar, transformar y construir a partir del material para cualquier propósito, incluso comercialmente. Bajo los términos de atribución, con lo cual debe dar crédito de manera adecuada, brindar un enlace a la licencia, e indicar si se han realizado cambios. 
+" target="_blank">El Corpus de Entidades Georreferenciadas de México</a>, CEGEOMEX es de libre acceso bajo atribución de <a href="Licencia.txt" target="_blank">la licencia (CC BY 2.5 MX)</a>. Usted es libre de compartir, copiar y redistribuir el material en cualquier medio o formato; adaptar, remezclar, transformar y construir a partir del material para cualquier propósito, incluso comercialmente. Bajo los términos de atribución, con lo cual debe dar crédito de manera adecuada citando <a href="#molina2019extraccion">(Molina et al., 2019)</a> y brindando un enlace al recurso e indicar si se han realizado cambios. 
 </p>
 
-<p><a href="named_entity_recognition_sp_MX_locations.JSON
-" target="_blank">Descargar el Corpus de Entidades Georreferenciadas de México</a>
-</p>
-    
 
 <h3>Reconocimiento de Entidades Georreferenciadas basado en Word Embeddings</h3>
 
