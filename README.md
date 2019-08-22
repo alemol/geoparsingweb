@@ -1,38 +1,18 @@
 # geoparsingweb
+
 CEGEOMEX y Geoparsing en español info
 
-{::nomarkdown}
 
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Métodos avanzados de Geoparsing en discurso libre - Alejandro Molina</title>
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "all"} } });
-    </script>
-  <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
-  </script>
 
-  <style type="text/css">
-    th, td {
-        padding: 15px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-    .imgContainer{
-        float:center;
-    }
-  </style>
-
-</head>
 
 <body>
 
-<h2>Métodos avanzados de Geoparsing en discurso libre</h2>
+<h2>Geoparsing de noticias en español con datos del Corpus de Entidades Georreferenciadas de México</h2>
+
+
 
 <h3>Introducción</h3>
 
@@ -243,46 +223,38 @@ Plaza Fundadores.</figcaption>
 
 <h3>Grupo de trabajo e instituciones participantes</h3>
 
-
-<ul>
-
 <h5>Centro de Investigación en Ciencias de Información Geoespacial - Mérida</h5>
+
+  <ul>
     <li> Dr. Alejandro Molina Villegas. Responsable Técnico: Procesamiento de Lenguaje Natural, Minería de datos; </li>
     <li> Dr. Oscar Sanchez Siordia. Coordinador del centro e Investigador titular: Reconocimiento de Patrones, Geomática;</li>
     <li> Ing. en computación Sergio Gongora Euan. Programador de sistemas.</li>
+  </ul>
 
 <h5>Centro de Investigación y Estudios Avanzados del Instituto Politécnico Nacional - Tamaulipas</h5>
-
+  <ul>
     <li> Dr. Edwyn Javier Aldana Bobadilla. Investigador. Aprendizaje de Máquina, Algoritmos Híbridos;</li>
     <li>Shanel Daniela Reyes Palacios. Tesista de posgrado.</li>
+  </ul>
 
 <h5>Centro de Investigación en Matemáticas - Monterrey</h5>
-
+  <ul>
     <li>Dr. Víctor Hugo Muñiz Sánchez. Investigador. Aprendizaje estadístico supervisado y no supervisado, análisis exploratorio de datos y técnicas de reducción de dimensión;</li>
     <li>Jean Michel Arreola Trapala. Tesista de posgrado;</li>
     <li>Filomeno Alberto Alcántara Alonso. Tesista de posgrado.</li>
-
-</ul>
+  </ul>
 
 <h3>Referencias</h3>
 
-<ol>
-
+  <ol>
     <li>[Molina-Villegas et al., 2019] <span id="molina2019extraccion">Molina-Villegas, A., Siordia, O., Aldana-Bobadilla, E., Aguilar, C. and Acosta, O. <cite><i>Extracción automática de referencias geoespaciales en discurso libre usando técnicas de procesamiento de lenguaje natural y teoría de la accesibilidad</i><cite>. Procesamiento del Lenguaje Natural. (SEPLN), 2019.</span></li>
-
     <li>[Sang y De Meulder, 2003] <span id="sang2003introduction"> Sang, E. F. y De Meulder, F. <cite><i>Introduction to the conll-2003 shared task: Language-independent named entity recognition. arXiv preprint cs/0306050</i><cite>. 2003.</span></li>
-
     <li>[Arreola, 2019] <span id="arreola2019"> Arreola Trapala, J. <cite><i>Reconocimiento de Entidades Nombradas Georeferenciables con Word Embeddings</i><cite>. Tesis de posgrado Centro de Investigación en Matemáticas Unidad Monterrey, Agosto 2019.</span></li>
-
     <li>[Mikolov et al., 2013] <span id="word_rep">Mikolov, T., Chen, K., Corrado, G. y Dean, J. <cite><i>Efficient estimation of word representations in vector space</i><cite>. CoRR, vol. abs/1301.3781, 2013.</span></li>
-
     <li>[Alcántara, 2019] <span id="alcantara2019"> Alcántara Alonso, F. <cite><i>Métodos de desambigüación para Geoparsing en Textos en Español</i><cite>. Tesis de posgrado Centro de Investigación en Matemáticas Unidad Monterrey, Agosto 2019.</span></li>
-
     <li>[López et al., 2019] <span id="lopez2019"> López-Ramírez, P., Molina-Villegas, A. y S. Siordia O. <cite><i>Geographical aggregation of microblog posts for LDA topic modeling.</i><cite>Journal of Intelligent and Fuzzy Systems 36(5): 4901-4908 (2019).</span></li>
-    
-</ol>
+  </ol>
 
 </body>
 </html>
 
-{:/}
