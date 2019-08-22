@@ -157,24 +157,24 @@ entrenamiento, de acuerdo a la ecuación (1).
 </p>
 
 
-    <div align="center" class="imgContainer">
-        <img src="fig/e1.png"/>
-    </div>
+<div align="center" class="imgContainer">
+    <img src="fig/e1.png"/>
+</div>
 
 Mientras que el vector de contexto local se calcula como se muestra en la ecuación (2).
 
 
-    <div align="center" class="imgContainer">
-        <img src="fig/e2.png"/>
-    </div>
+<div align="center" class="imgContainer">
+    <img src="fig/e2.png"/>
+</div>
 
-donde M<sub>w</sub> corresponde a las ocurrencias de $w$ en un solo
+donde M<sub>w</sub> corresponde a las ocurrencias de w en un solo
 documento. Así, el embedding de una palabra se calcula como se muestra en la ecuación (3).
 
 
-    <div align="center" class="imgContainer">
-        <img src="fig/e3.png"/>
-    </div>
+<div align="center" class="imgContainer">
+    <img src="fig/e3.png"/>
+</div>
 
 con &alpha; in [0,1]. 
 
@@ -287,7 +287,7 @@ Plaza Fundadores.</figcaption>
 <h3>Colaboradores</h3>
 
   <ul>
-    <li>Laboratorio de Datos (DataLab) del Laboratorio Nacional de Geointeligencia (GeoInt)</li>
+    <li>Pablo Lçopez y Karime Gonzalez - Laboratorio de Datos (DataLab) - Laboratorio Nacional de Geointeligencia (GeoInt)</li>
   </ul>
 
 <h3>Referencias</h3>
