@@ -153,49 +153,38 @@ La red neuronal de clasificación tiene 1 capa oculta con 3 unidades y la funci�
 Los embeddings se obtuvieron a partir de tokens procesados utilizando el módulo word2vec <a href="#word_rep">(Mikolov et al., 2013)</a>. Además de los word embeddings se ha utilizado un Context Encoder (ConEc).  El entrenamiento del ConEc es idéntico al del word2vec, con la diferencia en el cálculo del word embedding después de que el entrenamiento se completó. En el caso de word2vec, el embedding es la fila de la matriz W<sub>0</sub> mientras que en el caso de ConEc se crea la representación de la palabra multiplicando W<sub>0</sub> con el vector de contexto promedio x<sub>W</sub> de la palabra.
 
 Se hace la distinción entre el vector de contexto local y global de una palabra. El vector global se calcula como el promedio de todos los vectores binarios de contexto x<sub>w<sub>i</sub></sub> correspondientes a las M<sub>w</sub> ocurrencias de w en el corpus de
-entrenamiento, de acuerdo a la ecuación \ref{eq413}.
+entrenamiento, de acuerdo a la ecuación (1).
 </p>
 
-$$
-\begin{equation}
-    x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}
-  \label{eq413}
-\end{equation}
-$$
+
+    <div align="center" class="imgContainer">
+        <img src="fig/e1.png"/>
+    </div>
+
+Mientras que el vector de contexto local se calcula como se muestra en la ecuación (2).
 
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}" title="\Large x_{w_{global}} = \frac{1}{M_w} \sum_{i=1}^{M_w} x_{w_i}" />
-    
-
-Mientras que el vector de contexto local se calcula como se muestra en la ecuación \ref{eq414}.
-
-$$
-\begin{equation}
-    x_{w_{local}} = \frac{1}{m_w} \sum_{i=1}^{m_w}x_{w_i}
-\label{eq414}
-\end{equation}
-$$
+    <div align="center" class="imgContainer">
+        <img src="fig/e2.png"/>
+    </div>
 
 donde M<sub>w</sub> corresponde a las ocurrencias de $w$ en un solo
-documento. Así, el embedding de una palabra se calcula como se muestra en la ecuación \ref{eq415}.
+documento. Así, el embedding de una palabra se calcula como se muestra en la ecuación (3).
 
-$$
-\begin{equation}
-    y_w = (\alpha \cdot x_{w_global} + (1 - \alpha) \cdot
-x_{w_local})^T W_0
-    \label{eq415}
-\end{equation}
-$$
 
-con $\alpha \in [0,1]$. 
+    <div align="center" class="imgContainer">
+        <img src="fig/e3.png"/>
+    </div>
 
-<p>La elección de $\alpha$ determina qué tanto
+con &alpha; in [0,1]. 
+
+<p>La elección de &alpha; determina qué tanto
 énfasis se le da al contexto local de la palabra, lo que ayuda a
 distinguir entre múltiples significados de una misma palabra. Como una
 palabra fuera de vocabulario no tiene un vector de contexto global (ya
 que no pertenece al corpus de entrenamiento), su embedding se calcula
 tomando en cuenta únicamente el contexto local, es decir, tomando
-$\alpha = 0$.
+&alpha; = 0.
 </p>
 
 
